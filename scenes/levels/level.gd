@@ -1,7 +1,7 @@
 extends Node2D
 
-var laser_scene: PackedScene = preload("res://laser.tscn")
-var grenade_scene: PackedScene = preload("res://projectiles/grenade.tscn")
+var laser_scene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
+var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 
 func _on_gate_player_entered_gate():
 	print("Player has entered the gate")
