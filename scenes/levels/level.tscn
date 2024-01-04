@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://ba2ip6ehnns6a"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_ej75a"]
+[ext_resource type="PackedScene" uid="uid://blfqarhu3vijc" path="res://scenes/gate.tscn" id="2_6pkqc"]
+[ext_resource type="Texture2D" uid="uid://ciln0rvrwcybq" path="res://graphics/ground/stones.png" id="2_nnb1a"]
+[ext_resource type="Texture2D" uid="uid://dgku8jq3xjjct" path="res://graphics/tilesets/outside_walls.png" id="3_l4pki"]
+[ext_resource type="Texture2D" uid="uid://v0qdgyitmank" path="res://graphics/tilesets/soil.png" id="4_amwud"]
+[ext_resource type="PackedScene" uid="uid://bmo5ko7fmw6oa" path="res://Player.tscn" id="4_pe46j"]
+[ext_resource type="PackedScene" uid="uid://3sblu708xwv1" path="res://scenes/buildings/house.tscn" id="5_y87yx"]
+[ext_resource type="PackedScene" uid="uid://di74ytr2v33af" path="res://scenes/objects/steam_vent.tscn" id="8_ih5h4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x24gj"]
+resource_name = "Walls"
+texture = ExtResource("3_l4pki")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evwya"]
+resource_name = "Soil"
+texture = ExtResource("4_amwud")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qs16d"]
+tile_size = Vector2i(390, 390)
+sources/0 = SubResource("TileSetAtlasSource_x24gj")
+sources/1 = SubResource("TileSetAtlasSource_evwya")
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_ej75a")
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(267, 642)
+
+[node name="Soil" type="Sprite2D" parent="Ground"]
+texture_repeat = 2
+position = Vector2(-3, 0)
+texture = ExtResource("2_nnb1a")
+region_enabled = true
+region_rect = Rect2(-7295.16, -3023.71, 18209, 7876.02)
+
+[node name="TileMap" type="TileMap" parent="Ground"]
+tile_set = SubResource("TileSet_qs16d")
+format = 2
+layer_0/name = "Soil"
+layer_0/tile_data = PackedInt32Array(-131077, 65537, 1, -131078, 65537, 1, -131076, 65537, 1, -65540, 65537, 2, -131079, 65537, 1, -196612, 65537, 1, -196613, 65537, 1, -196614, 65537, 1, -196615, 65537, 1, -262148, 65537, 0, -262149, 65537, 0, -262150, 65537, 0, -196616, 65537, 1, -262152, 65537, 0, -262151, 65537, 0, -131080, 65537, 1, -65539, 65537, 2, -196607, 65537, 1, -131071, 65537, 2, -196606, 65537, 1, -131070, 65537, 2, -196605, 65537, 1, -131069, 65537, 2, -131068, 1, 1, -131075, 65537, 1, -131074, 65537, 1, -65538, 65537, 2, -131073, 65537, 1, -65537, 65537, 2, -196608, 65537, 1, -131072, 65537, 2, -262137, 131073, 1, -327673, 131073, 0, -327676, 65537, 0, -327675, 65537, 0, -327674, 65537, 0, -262140, 65537, 1, -262139, 65537, 1, -262138, 65537, 1, -196604, 1, 1, -262156, 65537, 0, -262155, 65537, 0, -262154, 65537, 0, -262153, 65537, 0, -262159, 1, 0, -262158, 65537, 0, -262157, 65537, 0, -196622, 65537, 1, -196621, 65537, 1, -196620, 65537, 1, -196619, 65537, 1, -196618, 65537, 1, -196617, 65537, 1, -196623, 1, 1, -65551, 1, 2, -131086, 65537, 1, -131085, 65537, 1, -131084, 65537, 1, -131083, 65537, 1, -131082, 65537, 1, -131081, 65537, 1, -65550, 65537, 2, -65549, 65537, 2, -65548, 65537, 2, -65547, 65537, 2, -65546, 65537, 2, -65545, 65537, 2, -65544, 65537, 2, -65543, 65537, 2, -65542, 65537, 2, -65541, 65537, 2, -131087, 1, 1, -196603, 65537, 1, -196602, 65537, 1, -131067, 65537, 1, -131066, 65537, 1, -196601, 131073, 1, -131065, 131073, 1, -65529, 131073, 1, -65532, 1, 1, 4, 1, 2, 5, 65537, 2, 6, 65537, 2, 7, 131073, 2, -65531, 65537, 1, -65530, 65537, 1)
+layer_1/name = "Walls"
+layer_1/tile_data = PackedInt32Array(-131080, 65536, 1, -131079, 65536, 0, -131078, 65536, 0, -131077, 65536, 0, -131076, 131072, 1, -65540, 65536, 2, -65544, 131072, 2, -65545, 0, 0, -196604, 65536, 0, -196603, 65536, 0, -196602, 65536, 0, -196601, 131072, 1, -131065, 0, 2, -65529, 0, 2, 7, 131072, 2, 6, 0, 0)
+
+[node name="House" parent="Ground" instance=ExtResource("5_y87yx")]
+position = Vector2(2178, 1715)
+
+[node name="SteamVent" parent="Ground" instance=ExtResource("8_ih5h4")]
+position = Vector2(-383, -212)
+
+[node name="Gate" parent="." instance=ExtResource("2_6pkqc")]
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("4_pe46j")]
+position = Vector2(227, 432)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.5
+blend_mode = 1
+
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="grenade_signal" from="Player" to="." method="_on_player_grenade_signal"]
+[connection signal="laser_signal" from="Player" to="." method="_on_player_laser_signal"]
