@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5a1cdcfpgbvx"]
 
-[ext_resource type="Texture2D" uid="uid://brfahd2p8dbqn" path="res://graphics/projectiles/grenade.png" id="1_g678f"]
-[ext_resource type="Script" path="res://grenade.gd" id="1_w0su8"]
+[ext_resource type="Texture2D" uid="uid://caiwqn27jtprs" path="res://graphics/projectiles/grenade.png" id="1_g678f"]
+[ext_resource type="Script" path="res://scenes/projectiles/grenade.gd" id="1_w0su8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6f5f5"]
 friction = 10.0
